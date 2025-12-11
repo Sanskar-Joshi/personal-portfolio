@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Complete Responsive Personal Portfolio Website Using HTML CSS & JavaScript
+    </title>
+
+    <!-- boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="active">
+      <a href="#" class="logo">Sanskar.</a>
+
+      <i class="bx bx-menu" id="menu-icon"></i>
+
+      <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Resume</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Bars Background  -->
+    <div class="bars-box">
+      <div class="bar" style="--i: 6"></div>
+      <div class="bar" style="--i: 5"></div>
+      <div class="bar" style="--i: 4"></div>
+      <div class="bar" style="--i: 3"></div>
+      <div class="bar" style="--i: 2"></div>
+      <div class="bar" style="--i: 1"></div>
+    </div>
+
+    <!-- Home Section -->
+    <section class="home active">
+      <div class="home-detail">
+        <h1>Sanskar Joshi</h1>
+        <h2>
+          I'm a
+          <span style="--i: 3" data-text="Code Enthusiast"
+            >Code Enthusiast</span
+          >
+          <span style="--i: 2" data-text="Tech Explorer">Tech Explorer</span>
+          <span style="--i: 4" data-text="Learner">Learner</span>
+          <span style="--i: 1" data-text="Web Developer">Web Developer</span>
+        </h2>
+        <p>
+          I transform ideas into digital reality. As a passionate Web Developer
+          and Code Enthusiast, I specialize in building clean, responsive, and
+          user-friendly websites that provide modern digital experiences.
+        </p>
+        <div class="btn-sci">
+          <a href="#" class="btn">Download CV</a>
+          <div class="sci">
+            <a href="#"><i class="bx bxl-github"></i></a>
+            <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-img">
+        <div class="img-box">
+          <div class="img-item">
+            <img src="images/home1.jpg" alt="Profile Picture of Sanskar" />
+          </div>
+        </div>
+      </div>
+
+      <a href="#services" class="scroll-down">
+        <i class="bx bx-chevrons-down"></i>
+      </a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <h2 class="heading">My <span>Services</span></h2>
+      <div class="services-container">
+        <div class="services-box">
+          <div class="icon">
+            <i class="bx bx-code-alt"></i>
+            <a href="#"><i class="bx bx-arrow-back"></i></a>
+          </div>
+          <h3>Web Development</h3>
+          <p>
+            Building fast, responsive, and semantic websites using HTML5, CSS3
+            and JavaScript tailored to meet specific client needs.
+          </p>
+        </div>
+
+        <div class="services-box">
+          <div class="icon">
+            <i class="bx bxs-paint"></i>
+            <a href="#"><i class="bx bx-arrow-back"></i></a>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>
+            Designing intuitive and accessible user interfaces that ensure a
+            smooth and engaging user experience across all devices.
+          </p>
+        </div>
+
+        <div class="services-box">
+          <div class="icon">
+            <i class="bx bx-devices"></i>
+            <a href="#"><i class="bx bx-arrow-back"></i></a>
+          </div>
+          <h3>Responsive Design</h3>
+          <p>
+            Ensuring your website adapts perfectly to all screen sizes,
+            providing an optimal viewing experience on mobiles, tablets, and
+            desktops.
+          </p>
+        </div>
+
+        <div class="services-box">
+          <div class="icon">
+            <i class="bx bx-wrench"></i>
+            <a href="#"><i class="bx bx-arrow-back"></i></a>
+          </div>
+          <h3>Website Maintenance</h3>
+          <p>
+            Regular updates, bug fixes, content management, and security checks
+            to keep your website running smoothly and securely.
+          </p>
+        </div>
+
+        <div class="services-box">
+          <div class="icon">
+            <i class="bx bx-layout"></i>
+            <a href="#"><i class="bx bx-arrow-back"></i></a>
+          </div>
+          <h3>Landing Pages</h3>
+          <p>
+            Creating high-converting, single-page websites designed specifically
+            to capture leads, promote products, or drive marketing campaigns.
+          </p>
+        </div>
+
+        <div class="services-box">
+          <div class="icon">
+            <i class="bx bx-rocket"></i>
+            <a href="#"><i class="bx bx-arrow-back"></i></a>
+          </div>
+          <h3>Speed Optimization</h3>
+          <p>
+            Analyzing and improving website loading speeds by optimizing code
+            and images to enhance user retention and SEO rankings.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume">
+      <div class="resume-container">
+        <div class="resume-box">
+          <h2>Why Hire Me?</h2>
+          <p class="desc">
+            I am a dedicated learner with a strong foundation in frontend
+            technologies. I bring a problem-solving mindset, attention to
+            detail, and a hunger to grow within a collaborative development
+            team.
+          </p>
+          <button class="resume-btn active">Experience</button>
+          <button class="resume-btn">Education</button>
+          <button class="resume-btn">Skills</button>
+          <button class="resume-btn">About Me</button>
+        </div>
+
+        <div class="resume-box">
+          <div class="resume-detail experience active">
+            <h2 class="heading">My <span>Experience</span></h2>
+            <p class="desc">
+              While I am a fresher, I have honed my skills through rigorous
+              personal projects, freelance gigs, and continuous learning.
+            </p>
+
+            <div class="resume-list">
+              <div class="resume-item">
+                <p class="year">2025 - Present</p>
+                <h3>Freelance Web Developer</h3>
+                <p class="company">Self-Employed (Ambaji)</p>
+                <p>
+                  Developing custom portfolio websites and landing pages for
+                  local clients, focusing on responsive design and cross-browser
+                  compatibility.
+                </p>
+              </div>
+
+              <div class="resume-item">
+                <p class="year">2024 - 2025</p>
+                <h3>Personal Portfolio Project</h3>
+                <p class="company">Academic project</p>
+                <p>
+                  Designed and built a fully functional personal portfolio using
+                  HTML, CSS and JavaScript to showcase skills and projects.
+                </p>
+              </div>
+
+              <div class="resume-item">
+                <p class="year">2024</p>
+                <h3>Frontend Intern (Remote)</h3>
+                <p class="company">TechStartups Inc.</p>
+                <p>
+                  Assisted in debugging UI components and converting Figma
+                  designs in to responsive HTML/CSS layouts.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-detail education">
+            <h2 class="heading">My <span>Education</span></h2>
+            <p class="desc">
+              My academic journey has provided me with a solid computer science
+              foundation, supplemented by specialised courses in AI and modern
+              web technologies.
+            </p>
+            <div class="resume-list">
+              <div class="resume-item">
+                <p class="year">2025</p>
+                <h3>AI Generative Mastermind Course</h3>
+                <p class="company">Out Skills</p>
+                <p>
+                  Specialized training in prompt engineering and leveraging AI
+                  tools for code optimization and generation.
+                </p>
+              </div>
+
+              <div class="resume-item">
+                <p class="year">2021 - 2024</p>
+                <h3>Bachelors of Computer Applications</h3>
+                <p class="company">Shree Ambaji BCA College</p>
+                <p>
+                  Graduated with a focus on Software Development, Database
+                  Management, and Web Technologies.
+                </p>
+              </div>
+
+              <div class="resume-item">
+                <p class="year">2020</p>
+                <h3>Tally Course</h3>
+                <p class="company">Government Certified Course</p>
+                <p>
+                  Completed certification in financial accounting software and
+                  digital bookkeeping.
+                </p>
+              </div>
+
+              <div class="resume-item">
+                <p class="year">2019 - 2020</p>
+                <h3>Higher Secondary Education - Commerce with Maths</h3>
+                <p class="company">St. Anselm's Sr. Sec. School</p>
+                <p>
+                  Completed 12th Grade (Commerce with Maths) with a focus on
+                  logic and analytics.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-detail skills">
+            <h2 class="heading">My <span>Skills</span></h2>
+            <p class="desc">
+              A toolkit of modern technologies I use to bring ideas to life.
+            </p>
+            <div class="resume-list">
+              <div class="resume-item">
+                <i class="bx bxl-html5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="resume-item">
+                <i class="bx bxl-css3"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="resume-item">
+                <i class="bx bxl-javascript"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="resume-item">
+                <i class="bx bx-bot"></i>
+                <span>AI Tools & Prompting</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-detail about">
+            <h2 class="heading">About <span>Me</span></h2>
+            <p class="desc">
+              Here are the personal details describing my background and
+              availability.
+            </p>
+
+            <div class="resume-list">
+              <div class="resume-item">
+                <p>Name <span>Sanskar Joshi</span></p>
+              </div>
+              <div class="resume-item">
+                <p>Gender <span>Male</span></p>
+              </div>
+              <div class="resume-item">
+                <p>Age <span>23 Years Old</span></p>
+              </div>
+              <div class="resume-item">
+                <p>Status <span>Single</span></p>
+              </div>
+              <div class="resume-item">
+                <p>City <span>Ambaji</span></p>
+              </div>
+              <div class="resume-item">
+                <p>Nationality <span>Indian</span></p>
+              </div>
+              <div class="resume-item">
+                <p>Experience <span>Fresher</span></p>
+              </div>
+              <div class="resume-item">
+                <p>Full Time <span>Available</span></p>
+              </div>
+              <div class="resume-item">
+                <p>Freelance <span>Available</span></p>
+              </div>
+              <div class="resume-item">
+                <p>Phone <span>(+91) 94281 94091</span></p>
+              </div>
+              <div class="resume-item">
+                <p>Email <span>sanskarjoshiambaji@gmail.com</span></p>
+              </div>
+              <div class="resume-item">
+                <p>
+                  Languages <span>English, Hindi, Gujarati, Rajasthani</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+      <h2 class="heading">Latest <span>Project</span></h2>
+      <div class="portfolio-container">
+        <div class="portfolio-box">
+          <div class="portfolio-detail active">
+            <p class="numb">01</p>
+            <h3>Authentication System UI</h3>
+            <p>
+              A secure Sign-up and Login interface featuring client-side form
+              validation, password visibility toggles, and smooth transition
+              animations between modes.
+            </p>
+            <div class="tech">
+              <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span>
+            </div>
+            <div class="live-github">
+              <a href="#"
+                ><i class="bx bx-arrow-back"></i><span>Live Project</span></a
+              >
+              <a href="#"
+                ><i class="bx bxl-github"></i><span>Github Repository</span></a
+              >
+            </div>
+          </div>
+
+          <div class="portfolio-detail">
+            <p class="numb">02</p>
+            <h3>Fashion E-commerce</h3>
+            <p>
+              A trendy online store interface for a clothing brand, featuring
+              responsive product grids, hover effects, and a modern shopping
+              cart layout.
+            </p>
+            <div class="tech">
+              <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span>
+            </div>
+            <div class="live-github">
+              <a href="#"
+                ><i class="bx bx-arrow-back"></i><span>Live Project</span></a
+              >
+              <a href="#"
+                ><i class="bx bxl-github"></i><span>Github Repository</span></a
+              >
+            </div>
+          </div>
+
+          <div class="portfolio-detail">
+            <p class="numb">03</p>
+            <h3>Real Estate Platform</h3>
+            <p>
+              A property listing website design showcasing high-quality property
+              images, detailed descriptions, and a clean, trustworthy layout for
+              potential buyers.
+            </p>
+            <div class="tech">
+              <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span>
+            </div>
+            <div class="live-github">
+              <a href="#"
+                ><i class="bx bx-arrow-back"></i><span>Live Project</span></a
+              >
+              <a href="#"
+                ><i class="bx bxl-github"></i><span>Github Repository</span></a
+              >
+            </div>
+          </div>
+
+          <div class="portfolio-detail">
+            <p class="numb">04</p>
+            <h3>Tic-Tac-Toe Game</h3>
+            <p>
+              An interactive game recreated with modern logic, featuring
+              win-condition detection, turn tracking, and a reset function for
+              continuous play.
+            </p>
+            <div class="tech">
+              <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span>
+            </div>
+            <div class="live-github">
+              <a href="#"
+                ><i class="bx bx-arrow-back"></i><span>Live Project</span></a
+              >
+              <a href="#"
+                ><i class="bx bxl-github"></i><span>Github Repository</span></a
+              >
+            </div>
+          </div>
+
+          <div class="portfolio-detail">
+            <p class="numb">05</p>
+            <h3>Time-Block Planner</h3>
+            <p>
+              A productivity tool combining a time-block calendar with a daily
+              to-do list, helping users organize their current day efficiently.
+            </p>
+            <div class="tech">
+              <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span>
+            </div>
+            <div class="live-github">
+              <a href="#"
+                ><i class="bx bx-arrow-back"></i><span>Live Project</span></a
+              >
+              <a href="#"
+                ><i class="bx bxl-github"></i><span>Github Repository</span></a
+              >
+            </div>
+          </div>
+
+          <div class="portfolio-detail">
+            <p class="numb">06</p>
+            <h3>Personal Portfolio</h3>
+            <p>
+              This fully responsive website, built from scratch to showcase my
+              skills and projects, featuring dark mode aesthetics and JS
+              animations.
+            </p>
+            <div class="tech">
+              <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span>
+            </div>
+            <div class="live-github">
+              <a href="#"
+                ><i class="bx bx-arrow-back"></i><span>Live Project</span></a
+              >
+              <a href="#"
+                ><i class="bx bxl-github"></i><span>Github Repository</span></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-box">
+          <div class="portfolio-carousel">
+            <div class="img-slide">
+              <div class="img-item">
+                <img src="images/portfolio1.jpg" />
+              </div>
+              <div class="img-item">
+                <img src="images/portfolio2.jpg" />
+              </div>
+              <div class="img-item">
+                <img src="images/portfolio3.jpg" />
+              </div>
+              <div class="img-item">
+                <img src="images/portfolio4.jpg" />
+              </div>
+              <div class="img-item">
+                <img src="images/portfolio5.jpg" />
+              </div>
+              <div class="img-item">
+                <img src="images/portfolio6.jpg" />
+              </div>
+            </div>
+          </div>
+
+          <div class="navigation">
+            <button class="arrow-left disabled">
+              <i class="bx bx-chevron-left"></i>
+            </button>
+            <button class="arrow-right">
+              <i class="bx bx-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <div class="contact-container">
+        <div class="contact-box">
+          <h2>Let's Collaborate</h2>
+          <p class="desc">
+            I am currently available for freelance work and full-time
+            opportunities. If you have a project that needs a creative touch,
+            let's chat!
+          </p>
+          <div class="contact-detail">
+            <i class="bx bxs-phone"></i>
+            <div class="detail">
+              <p>Phone</p>
+              <p>(+91) 94281 94091</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <i class="bx bxs-envelope"></i>
+            <div class="detail">
+              <p>Email</p>
+              <p>sanskarjoshiambaji@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <i class="bx bxs-map"></i>
+            <div class="detail">
+              <p>Address</p>
+              <p>Ambaji, Gujarat, India</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <i class="bx bxl-linkedin-square"></i>
+            <div class="detail">
+              <p>
+                <a href="#" style="color: var(--white-color)"
+                  >Connect on LinkedIn</a
+                >
+              </p>
+              <p>Ambaji, Gujarat, India</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <form action="https://api.web3forms.com/submit" method="post">
+            <input
+              type="hidden"
+              name="access_key"
+              value="0862ced3-bf75-4afe-a315-6ac8167029ee"
+            />
+            <h2 class="heading">Send a <span>Message!</span></h2>
+            <div class="field-box">
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <input type="text" placeholder="Phone No." required />
+              <input type="text" placeholder="Subject" required />
+              <textarea
+                name="message"
+                id=""
+                placeholder="Tell me about your project..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- custom js -->
+    <script src="script.js"></script>
+  </body>
+</html>
