@@ -25,16 +25,16 @@
       <i class="bx bx-menu" id="menu-icon"></i>
 
       <nav>
-        <a href="#" class="active">Home</a>
-        <a href="#">Projects</a>
-        <a href="#">Services</a>
-        <a href="#">Resume</a>
-        <a href="#">Contact</a>
+        <a href="#home" class="active">Home</a>
+        <a href="#project">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <!-- Home Section -->
-    <section class="home active">
+    <section class="home active" id="home">
       <div class="home-detail">
         <h1>Sanskar Joshi</h1>
         <h2>
@@ -52,10 +52,17 @@
           user-friendly websites that provide modern digital experiences.
         </p>
         <div class="btn-sci">
-          <a href="#" class="btn">Download CV</a>
+          <a href="Resume.pdf" class="btn" download>Download CV</a>
           <div class="sci">
-            <a href="#"><i class="bx bxl-github"></i></a>
-            <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+            <a href="https://github.com/Sanskar-Joshi" target="_blank"
+              ><i class="bx bxl-github"></i
+            ></a>
+
+            <a
+              href="https://www.linkedin.com/in/sanskar-joshi-417630358"
+              target="_blank"
+              ><i class="bx bxl-linkedin-square"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -70,7 +77,7 @@
     </section>
 
     <!-- Project Section -->
-    <section class="project">
+    <section class="project" id="project">
       <h2 class="heading">Latest <span>Project</span></h2>
       <div class="project-container">
         <div class="project-box">
@@ -316,7 +323,7 @@
     </section>
 
     <!-- Resume Section -->
-    <section class="resume">
+    <section class="resume" id="resume">
       <div class="resume-container">
         <div class="resume-box">
           <h2>Why Hire Me?</h2>
@@ -327,8 +334,9 @@
             team.
           </p>
           <button class="resume-btn active">Experience</button>
-          <button class="resume-btn">Education</button>
           <button class="resume-btn">Skills</button>
+          <button class="resume-btn">Certifications & Courses</button>
+          <button class="resume-btn">Education</button>
           <button class="resume-btn">About Me</button>
         </div>
 
@@ -336,7 +344,7 @@
           <div class="resume-detail experience active">
             <h2 class="heading">My <span>Experience</span></h2>
             <p class="desc">
-              While I am a fresher, I have honed my skills through rigorous
+              I am a Web Developer, I have honed my skills through rigorous
               personal projects, freelance gigs, and continuous learning.
             </p>
 
@@ -351,35 +359,48 @@
                   compatibility.
                 </p>
               </div>
+            </div>
+          </div>
 
+          <div class="resume-detail skills">
+            <h2 class="heading">My <span>Skills</span></h2>
+            <p class="desc">
+              A toolkit of modern technologies I use to bring ideas to life.
+            </p>
+            <div class="resume-list">
               <div class="resume-item">
-                <p class="year">2024 - 2025</p>
-                <h3>Personal Portfolio Project</h3>
-                <p class="company">Academic project</p>
-                <p>
-                  Designed and built a fully functional personal portfolio using
-                  HTML, CSS and JavaScript to showcase skills and projects.
-                </p>
+                <i class="bx bxl-html5"></i>
+                <p>HTML5</p>
+              </div>
+              <div class="resume-item">
+                <i class="bx bxl-css3"></i>
+                <p>CSS3</p>
+              </div>
+              <div class="resume-item">
+                <i class="bx bxl-javascript"></i>
+                <p>JavaScript</p>
+              </div>
+            </div>
+
+            <div class="resume-list">
+              <div class="resume-item">
+                <i class="bx bxl-figma"></i>
+                <p>Figma</p>
               </div>
 
               <div class="resume-item">
-                <p class="year">2024</p>
-                <h3>Frontend Intern (Remote)</h3>
-                <p class="company">TechStartups Inc.</p>
-                <p>
-                  Assisted in debugging UI components and converting Figma
-                  designs in to responsive HTML/CSS layouts.
-                </p>
+                <i class="bx bxl-visual-studio"></i>
+                <p>VS Code</p>
               </div>
             </div>
           </div>
 
-          <div class="resume-detail education">
-            <h2 class="heading">My <span>Education</span></h2>
+          <div class="resume-detail certification">
+            <h2 class="heading">Certifications & <span>Courses</span></h2>
             <p class="desc">
-              My academic journey has provided me with a solid computer science
-              foundation, supplemented by specialised courses in AI and modern
-              web technologies.
+              Beyond my academic degree, I have completed targeted courses to
+              gain practical expertise in modern web technologies, AI tools, and
+              financial software.
             </p>
             <div class="resume-list">
               <div class="resume-item">
@@ -393,22 +414,32 @@
               </div>
 
               <div class="resume-item">
-                <p class="year">2021 - 2024</p>
-                <h3>Bachelors of Computer Applications</h3>
-                <p class="company">Shree Ambaji BCA College</p>
-                <p>
-                  Graduated with a focus on Software Development, Database
-                  Management, and Web Technologies.
-                </p>
-              </div>
-
-              <div class="resume-item">
                 <p class="year">2020</p>
                 <h3>Tally Course</h3>
                 <p class="company">Government Certified Course</p>
                 <p>
                   Completed certification in financial accounting software and
                   digital bookkeeping.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-detail education">
+            <h2 class="heading">Certifications & <span>Courses</span></h2>
+            <p class="desc">
+              My academic journey has provided me with a solid computer science
+              foundation, supplemented by specialised courses in AI and modern
+              web technologies.
+            </p>
+            <div class="resume-list">
+              <div class="resume-item">
+                <p class="year">2021 - 2024</p>
+                <h3>Bachelors of Computer Applications</h3>
+                <p class="company">Shree Ambaji BCA College</p>
+                <p>
+                  Graduated with a focus on Software Development, Database
+                  Management, and Web Technologies.
                 </p>
               </div>
 
@@ -420,31 +451,6 @@
                   Completed 12th Grade (Commerce with Maths) with a focus on
                   logic and analytics.
                 </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="resume-detail skills">
-            <h2 class="heading">My <span>Skills</span></h2>
-            <p class="desc">
-              A toolkit of modern technologies I use to bring ideas to life.
-            </p>
-            <div class="resume-list">
-              <div class="resume-item">
-                <i class="bx bxl-html5"></i>
-                <span>HTML5</span>
-              </div>
-              <div class="resume-item">
-                <i class="bx bxl-css3"></i>
-                <span>CSS3</span>
-              </div>
-              <div class="resume-item">
-                <i class="bx bxl-javascript"></i>
-                <span>JavaScript</span>
-              </div>
-              <div class="resume-item">
-                <i class="bx bx-bot"></i>
-                <span>AI Tools & Prompting</span>
               </div>
             </div>
           </div>
@@ -502,7 +508,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="contact" id="contact">
       <div class="contact-container">
         <div class="contact-box">
           <h2>Let's Collaborate</h2>
@@ -573,8 +579,12 @@
         </div>
       </div>
     </section>
+
+    <a href="tel:+919428194091" class="sticky-cta">
+      <i class="bx bxs-phone-call"></i>
+      <span>Call Me!</span>
+    </a>
     <!-- custom js -->
     <script src="script.js"></script>
   </body>
 </html>
-
