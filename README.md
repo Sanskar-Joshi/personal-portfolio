@@ -13,3 +13,8 @@ Welcome to my personal portfolio repository! This project is a live showcase of 
 
 ### 🔗 Live Demo
 Check out the live website here: https://sanskar-joshi.github.io/portfolio-2025/
+
+## 👤 Author
+**Sanskar Joshi**
+- [LinkedIn](https://www.linkedin.com/in/sanskar-joshi-417630358/)
+- [GitHub](https://github.com/sanskar-joshi)
