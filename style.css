@@ -46,6 +46,7 @@ html {
 body {
   color: var(--white-color);
   background: var(--bg-color);
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* COMMON STYLES */
@@ -92,18 +93,6 @@ header {
   align-items: center;
   z-index: 100;
 }
-
-/* header.active {
-  animation: show-header 1.5s linear forwards;
-  animation-delay: 1.2s;
-}
-
-@keyframes show-header {
-  100% {
-    visibility: visible;
-    opacity: 1;
-  }
-} */
 
 .logo {
   font-size: 3rem;
@@ -163,7 +152,6 @@ section {
   display: inline-block;
   font-size: 3.2rem;
   margin-top: -1rem;
-  /* margin-bottom: 0.5rem; */
 }
 
 .home-detail h2 span {
@@ -293,7 +281,6 @@ section {
   justify-content: center;
   z-index: 1;
   overflow: hidden;
-  /* align-items: flex-end; */
 }
 
 .home-img .img-box .img-item img {
@@ -310,15 +297,6 @@ section {
 .home-img .img-box:hover .img-item img {
   transform: scale(1.1);
   filter: brightness(1.1);
-}
-
-.scroll-down {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translatex(-50%);
-  font-size: 2rem;
-  color: var(--main-color);
 }
 
 /* PROJECT SECTION */
@@ -426,15 +404,6 @@ section {
   border: 2px solid var(--second-bg-color);
 }
 
-/* .project-box .project-carousel {
-  width: 100%;
-  height: 35rem;
-  aspect-ratio: 16 / 7.3;
-  border-radius: 1rem;
-  overflow: hidden;
-  border: 2px solid var(--second-bg-color);
-} */
-
 .project-carousel .img-slide {
   display: grid;
   grid-auto-flow: column;
@@ -453,9 +422,8 @@ section {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* changed from cover to contain for full visibility */
   background: #000;
-  /* border-radius: 1rem; */
 }
 
 .project-box .navigation {
@@ -719,12 +687,10 @@ section.services {
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--white-color);
-  /* text-align: center; */
 }
 
 .resume-detail.skills .resume-item:hover p {
   color: var(--main-color);
-  /* transition: 0.3s; */
 }
 
 .resume-detail.skills .resume-item span {
@@ -753,7 +719,7 @@ section.services {
   font-size: 1.8rem;
 }
 
-/*  CONTACT SECTION */
+/*  CONTACT SECTION */
 
 .contact-container {
   display: grid;
@@ -978,6 +944,7 @@ section.services {
     justify-content: center;
   }
 
+  /* Fixed image overflow on tablet/mobile */
   .home-img .img-box {
     width: 35rem;
     height: 35rem;
@@ -1028,9 +995,26 @@ section.services {
   }
 }
 
+/* Specific Fix for Small Mobile Screens */
 @media screen and (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+
+  /* Fix for Project Carousel on Mobile */
+  .project-carousel {
+    aspect-ratio: 4/3; /* Make it more square on mobile so images are visible */
+  }
+
+  .home-img .img-box {
+    width: 25rem; /* Smaller to prevent horizontal scrolling */
+    height: 25rem;
+  }
+
+  .home-img .img-box::before,
+  .home-img .img-box::after {
+    width: 35rem;
+    height: 35rem;
   }
 
   .sticky-cta {
