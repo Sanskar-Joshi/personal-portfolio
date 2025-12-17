@@ -1003,7 +1003,13 @@ section.services {
 
   /* Fix for Project Carousel on Mobile */
   .project-carousel {
-    aspect-ratio: 4/3; /* Make it more square on mobile so images are visible */
+    aspect-ratio: 16/9; /* Make it more square on mobile so images are visible */
+    border: 1px solid var(--main-color);
+  }
+
+  .project-carousel .img-item img {
+    object-fit: contain;
+    background: #000;
   }
 
   .home-img .img-box {
@@ -1015,6 +1021,26 @@ section.services {
   .home-img .img-box::after {
     width: 35rem;
     height: 35rem;
+  }
+
+  .home-detail {
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .home-detail h1 {
+    font-size: 3.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .btn-sci {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .sticky-cta {
