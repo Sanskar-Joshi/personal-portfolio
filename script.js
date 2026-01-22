@@ -1,7 +1,15 @@
+/* ================================================
+    DEFINE VARIABLES ONCE (Gobal Selectors to avoid re-querying) 
+  ================================================= */
+const header = document.querySelector("header");
 const navLinks = document.querySelectorAll("header nav a");
 const sections = document.querySelectorAll("section");
 const menuIcon = document.querySelector("#menu-icon");
 const navbar = document.querySelector("header nav");
+
+/* ================================================
+   1. NAVIGATION & SCROLL LOGIC 
+  ================================================= */
 
 // TOGGLE MENU
 menuIcon.addEventListener("click", () => {
@@ -11,6 +19,7 @@ menuIcon.addEventListener("click", () => {
 
 // SCROLL SPY & STICKY HEADER
 window.onscroll = () => {
+  // 1. Highlight Active Section
   sections.forEach((sec) => {
     let top = window.scrollY;
     let offset = sec.offsetTop - 150;
@@ -20,66 +29,78 @@ window.onscroll = () => {
     if (top >= offset && top < offset + height) {
       navLinks.forEach((links) => {
         links.classList.remove("active");
-        document
-          .querySelector("header nav a[href*=" + id + "]")
-          .classList.add("active");
+        // Efficiently select the active link
+        let activeLink = document.querySelector(
+          "header nav a[href*=" + id + "]"
+        );
+        if (activeLink) activeLink.classList.add("active");
       });
     }
   });
 
-  let header = document.querySelector("header");
+  // 2. Sticky Header (Optimized: 'header' is now cached at the top)
   header.classList.toggle("sticky", window.scrollY > 100);
 
-  // CLOSE MENU ON SCROLL
-  menuIcon.classList.remove("bx-x");
-  navbar.classList.remove("active");
+  // 3. CLOSE MENU ON SCROLL (UX Improvement)
+  if (navbar.classList.contains("active")) {
+    menuIcon.classList.remove("bx-x");
+    navbar.classList.remove("active");
+  }
 };
 
-// RESUME SECTION TABS
+/* ================================================
+   2. RESUME TABS LOGIC 
+  ================================================= */
 const resumeBtns = document.querySelectorAll(".resume-btn");
+const resumeDetails = document.querySelectorAll(".resume-detail");
 
 resumeBtns.forEach((btn, idx) => {
   btn.addEventListener("click", () => {
-    const resumeDetails = document.querySelectorAll(".resume-detail");
-
-    // REMOVE ACTIVE FROM ALL BUTTONS
-    resumeBtns.forEach((btn) => {
-      btn.classList.remove("active");
+    // Remove active class from all
+    resumeBtns.forEach((b) => {
+      b.classList.remove("active");
     });
-    // ADD ACTIVE TO CLICKED BUTTON
+    resumeDetails.forEach((d) => d.classList.remove("active"));
+
+    // Add active class to current
     btn.classList.add("active");
 
-    // REMOVE ACTIVE FROM ALL DETAILS
-    resumeDetails.forEach((detail) => {
-      detail.classList.remove("active");
-    });
-    // ADD ACTIVE TO THE CORRESPONDING DETAIL (based on Index)
-    resumeDetails[idx].classList.add("active");
+    // Safety Check: Ensure the detail section exists before accessing it
+    if (resumeDetails[idx]) {
+      resumeDetails[idx].classList.add("active");
+    }
   });
 });
 
-// PROJECT CAROUSEL
+/* ================================================
+   3. PROJECT CAROUSEL LOGIC 
+  =============================================== */
 const arrowRight = document.querySelector(
   ".project-box .navigation .arrow-right"
 );
 const arrowLeft = document.querySelector(
   ".project-box .navigation .arrow-left"
 );
-let index = 0;
-
 const projectDetails = document.querySelectorAll(".project-detail");
-const totalProjectItems = projectDetails.length;
 const imgSlide = document.querySelector(".project-carousel .img-slide");
 
+let index = 0;
+// Dynamic length check(so it works if you add more projects later)
+const totalProjectItems = projectDetails.length;
+
 const activeProject = () => {
+  // Move the Image Slide
   imgSlide.style.transform = `translateX(calc(${index * -100}% - ${
     index * 2
   }rem))`;
 
+  // Update Text Details
   projectDetails.forEach((detail) => {
     detail.classList.remove("active");
   });
-  projectDetails[index].classList.add("active");
+  if (projectDetails[index]) {
+    projectDetails[index].classList.add("active");
+  }
 };
 
 arrowRight.addEventListener("click", () => {
@@ -106,7 +127,9 @@ arrowLeft.addEventListener("click", () => {
   activeProject();
 });
 
-// SERVICES HOVER EFFECT
+/* =========================================
+   4. SERVICES HOVER EFFECT (Glassmorphism)
+   ========================================= */
 const serviceBoxes = document.querySelectorAll(".services-box");
 
 serviceBoxes.forEach((box) => {
@@ -114,6 +137,7 @@ serviceBoxes.forEach((box) => {
     let x = e.pageX - box.offsetLeft;
     let y = e.pageY - box.offsetTop;
 
+    // Use CSS Variables for cleaner code if possible, but this works for dynamic light
     box.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(124, 240, 61, 0.15), var(--second-bg-color))`;
   };
 
@@ -122,24 +146,25 @@ serviceBoxes.forEach((box) => {
   };
 });
 
-// CONTACT FORM TO GOOGLE SHEETS
-
+/* ======================================== 
+  5. CONTACT FORM & TOAST NOTIFICATION 
+  ========================================= */
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbzAhYULbLdVdDHw_LCHJjahQ4xnE-Itl40XyZl1rbr8Wo9EObCOF7ccmWjj2BnH4BpdqQ/exec";
-
 const form = document.forms["submit-to-google-sheet"];
-const msg = document.getElementById("msg");
 
-// Function to trigger the Toast
+// Global timeout variable to prevent overlapping toasts
+let toastTimeout;
+
 function launchToast(message, isError = false) {
   const toast = document.getElementById("toast");
   const desc = document.getElementById("desc");
   const imgIcon = document.querySelector("#toast #img i");
 
-  // Set message text
+  // 1. Set Message
   desc.innerText = message;
 
-  // Change styling based on success or error
+  // 2. Handle Success/Error Styling
   if (isError) {
     toast.style.borderLeft = "5px solid red";
     imgIcon.className = "bx bxs-error-circle";
@@ -150,47 +175,37 @@ function launchToast(message, isError = false) {
     imgIcon.style.color = "#61b752";
   }
 
-  // Add class to show the toast
+  // 3. Show Toast (Clear previous timer first!)
+  clearTimeout(toastTimeout);
   toast.className = "show";
 
-  // Remove the class after 5 seconds (must match CSS animation time)
-  setTimeout(function () {
+  // 4. Hide after 5 seconds
+  toastTimeout = setTimeout(function () {
     toast.className = toast.className.replace("show", "");
   }, 5000);
 }
 
 if (form) {
-  //Check if form exists to prevent errors on other pages
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // 1. Show loading state
     const submitBtn = form.querySelector("button");
     const originalText = submitBtn.innerText;
-    submitBtn.innerHTML = "Sending...";
-    submitBtn.disabled = "true";
 
-    // Sending data to Google Sheets
+    // Loading State
+    submitBtn.innerHTML = "Sending...";
+    submitBtn.disabled = true;
+
     fetch(scriptURL, { method: "POST", body: new FormData(form) })
       .then((response) => {
-        // Trigger Success Toast
         launchToast("Message sent successfully! ✅");
-
-        // Reset Form
         form.reset();
-
-        // Reset Button
         submitBtn.innerText = originalText;
         submitBtn.disabled = false;
       })
       .catch((error) => {
-        // Error Handling
         console.error("Error!", error.message);
-
-        // Trigger Error Toast
         launchToast("Error! Please check internet.", true);
-
-        // Reset Button
         submitBtn.innerText = originalText;
         submitBtn.disabled = false;
       });
