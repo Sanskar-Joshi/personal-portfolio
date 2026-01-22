@@ -33,13 +33,14 @@ Welcome to my personal portfolio website! This project showcases my journey as a
 
 If you want to clone and run this project on your local machine:
 
-1.  **Clone the repository**
-    Run this command in your terminal:
-    `git clone https://www.github.com/Sanskar-Joshi/personal-portfolio.git`
+1. **Clone the repository**
 
-2.  **Open index.html**
-    - Simply open the `index.html` file in your browser.
-    - OR use **Live Server** in VS Code for the best experience.
+   Run this command in your terminal:
+   `git clone https://github.com/Sanskar-Joshi/personal-portfolio.git`
+
+2. **Open index.html**
+   - Simply open the `index.html` file in your browser.
+   - OR use **Live Server** in VS Code for the best experience.
 
 ---
 
