@@ -30,9 +30,7 @@ window.onscroll = () => {
       navLinks.forEach((links) => {
         links.classList.remove("active");
         // Efficiently select the active link
-        let activeLink = document.querySelector(
-          "header nav a[href*=" + id + "]"
-        );
+        let activeLink = document.querySelector(`header nav a[href="#{id}"]`);
         if (activeLink) activeLink.classList.add("active");
       });
     }
@@ -73,26 +71,17 @@ resumeBtns.forEach((btn, idx) => {
 });
 
 /* ================================================
-   3. PROJECT CAROUSEL LOGIC 
+   3. PROJECT CAROUSEL LOGIC (AUTO-PLAY)
   =============================================== */
-const arrowRight = document.querySelector(
-  ".project-box .navigation .arrow-right"
-);
-const arrowLeft = document.querySelector(
-  ".project-box .navigation .arrow-left"
-);
 const projectDetails = document.querySelectorAll(".project-detail");
 const imgSlide = document.querySelector(".project-carousel .img-slide");
 
 let index = 0;
-// Dynamic length check(so it works if you add more projects later)
-const totalProjectItems = projectDetails.length;
+let totalProjectItems = projectDetails.length;
 
 const activeProject = () => {
-  // Move the Image Slide
-  imgSlide.style.transform = `translateX(calc(${index * -100}% - ${
-    index * 2
-  }rem))`;
+  // Move the Image Slide exactly by 100% chuncks (since we removed the gap in CSS)
+  imgSlide.style.transform = `translateX(-${index * 100}%)`;
 
   // Update Text Details
   projectDetails.forEach((detail) => {
@@ -103,29 +92,17 @@ const activeProject = () => {
   }
 };
 
-arrowRight.addEventListener("click", () => {
-  if (index < totalProjectItems - 1) {
-    index++;
-    arrowLeft.classList.remove("disabled");
+// Auto-play timer: Changes project every 30 seconds (30000ms)
+setInterval(() => {
+  index++;
+
+  // Loop back to the first project when reaching the end
+  if (index >= totalProjectItems) {
+    index = 0;
   }
 
-  if (index === totalProjectItems - 1) {
-    arrowRight.classList.add("disabled");
-  }
   activeProject();
-});
-
-arrowLeft.addEventListener("click", () => {
-  if (index > 0) {
-    index--;
-    arrowRight.classList.remove("disabled");
-  }
-
-  if (index === 0) {
-    arrowLeft.classList.add("disabled");
-  }
-  activeProject();
-});
+}, 30000);
 
 /* =========================================
    4. SERVICES HOVER EFFECT (Glassmorphism)
@@ -150,7 +127,7 @@ serviceBoxes.forEach((box) => {
   5. CONTACT FORM & TOAST NOTIFICATION 
   ========================================= */
 const scriptURL =
-  "https://script.google.com/macros/s/AKfycbzAhYULbLdVdDHw_LCHJjahQ4xnE-Itl40XyZl1rbr8Wo9EObCOF7ccmWjj2BnH4BpdqQ/exec";
+  "https://script.google.com/macros/s/AKfycbyCe3KZUJDbTKStAOrKJccEV4YEQVeR9izuD_39ARJvRsaU007BnwMBJHBVJ-SIwJNg/exec";
 const form = document.forms["submit-to-google-sheet"];
 
 // Global timeout variable to prevent overlapping toasts

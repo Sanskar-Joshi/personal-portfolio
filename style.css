@@ -77,7 +77,9 @@ body {
 .btn:hover {
   background: transparent;
   color: var(--main-color);
-  box-shadow: 0 0 2rem var(--main-color), 0 0 4rem var(--main-color);
+  box-shadow:
+    0 0 2rem var(--main-color),
+    0 0 4rem var(--main-color);
 }
 
 /* HEADER & NAVIGATION */
@@ -301,25 +303,54 @@ section {
 
 /* PROJECT SECTION */
 .project-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1000px; /* Constraints the width for ultra wide monitors */
+  margin: 0 auto;
+}
+
+/* Move the Text Details to the bottom */
+.project-container .project-box:first-child {
+  order: 2;
+  width: 100%;
+  text-align: center;
+}
+
+/* Move the Image Caraousel to the top */
+.project-container .project-box:last-child {
+  order: 1;
+  width: 100%;
 }
 
 .project-detail {
   display: none;
   width: 100%;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
 .project-detail.active {
   display: block;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .project-box .numb {
-  font-size: 8rem;
-  -webkit-text-stroke: 0.7rem var(--white-color);
+  font-size: 6rem;
+  -webkit-text-stroke: 0.2rem var(--white-color);
   color: transparent;
   line-height: 1;
+  margin-bottom: 1rem;
 }
 
 .project-box h3 {
@@ -329,16 +360,29 @@ section {
 
 .project-box p {
   font-size: 1.6rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .project-box .tech {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   color: var(--white-color);
-  border-bottom: 0.1rem solid var(--white-color);
-  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2.5rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.project-box .tech span {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--main-color);
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  border: 1px solid var(--main-color);
 }
 
 .project-box .tech p {
@@ -350,6 +394,12 @@ section {
   border: 1px solid var(--main-color);
 }
 
+.project-box .live-github {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
 .project-box .live-github a {
   position: relative;
   display: inline-flex;
@@ -358,11 +408,13 @@ section {
   color: var(--white-color);
   border-radius: 50%;
   background: var(--second-bg-color);
-  transition: 0.5s;
+  transition: 0.4s ease;
 }
 
 .project-box .live-github a:hover {
   color: var(--main-color);
+  box-shadow: 0 0 1.5rem var(--main-color);
+  transform: translateY(-3px);
 }
 
 .project-box .live-github a:first-child {
@@ -395,22 +447,24 @@ section {
   transform: translateX(-50%) scale(1);
 }
 
+/* Massive Image COntainer */
 .project-carousel {
   width: 100%;
   height: auto;
-  aspect-ratio: 16/7.3;
-  border-radius: 1rem;
+  aspect-ratio: 16/8;
+  border-radius: 1.5rem;
   overflow: hidden;
-  border: 2px solid var(--second-bg-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 0 1rem 3rem rgba(124, 240, 61, 0.15);
 }
 
 .project-carousel .img-slide {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
-  gap: 2rem;
+  gap: 0; /* Removed gap for a seamless sliding caculation */
   height: inherit;
-  transition: 0.5s;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth snap effect */
 }
 
 .project-carousel .img-item {
@@ -418,37 +472,18 @@ section {
   width: 100%;
 }
 
-.project-carousel .img-item img {
+.project-carousel .img-item img,
+.project-carousel .img-item video {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* changed from cover to contain for full visibility */
-  background: #000;
+  object-fit: cover;
+  object-position: top center; /* Keeps the top of the dashboard visible */
 }
 
+/* Hide the old navigation buttons completely */
 .project-box .navigation {
-  text-align: right;
-  margin-top: 2rem;
-}
-
-.project-box .navigation button {
-  display: inline-flex;
-  padding: 0.4rem;
-  background: var(--second-bg-color);
-  border: 0.2rem solid var(--main-color);
-  border-radius: 0.6rem;
-  font-size: 4rem;
-  color: var(--main-color);
-  cursor: pointer;
-}
-
-.project-box .navigation button.disabled {
-  border-color: var(--second-bg-color);
-  color: var(--disabled-color);
-}
-
-.project-box .navigation .arrow-right {
-  margin-left: 1.5rem;
+  display: none;
 }
 
 /* SERVICES SECTION */
@@ -567,7 +602,7 @@ section.services {
   font-size: 1.6rem;
 }
 
-.resume-box desc {
+.resume-box .desc {
   margin: 2rem 0 2.5rem;
 }
 
@@ -606,7 +641,7 @@ section.services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 2rem;
-  height: 45rem;
+  height: 55rem;
   overflow: auto;
 }
 
@@ -626,7 +661,7 @@ section.services {
   background: var(--second-bg-color);
   border-radius: 0.8rem;
   padding: 3rem 2.5rem;
-  height: calc((45rem - 2rem) / 2);
+  height: calc((55rem - 2rem) / 2);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -658,7 +693,7 @@ section.services {
 }
 
 .resume-detail.skills .resume-list {
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 3fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   height: auto;
   overflow: visible;
   margin-bottom: 1rem;
@@ -1122,8 +1157,12 @@ section.services {
 
 #toast.show {
   visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
-  animation: fadein 0.5s, fadeout 0.5s 4.5s;
+  -webkit-animation:
+    fadein 0.5s,
+    fadeout 0.5s 4.5s;
+  animation:
+    fadein 0.5s,
+    fadeout 0.5s 4.5s;
 }
 
 /* Animations */
