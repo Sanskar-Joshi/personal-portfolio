@@ -989,8 +989,8 @@ section.services {
     justify-content: center;
   }
 
+  /* Removed project-container from here since it is flex now */
   .resume-container,
-  .project-container,
   .contact-container {
     grid-template-columns: 1fr;
   }
@@ -999,12 +999,24 @@ section.services {
     gap: 3rem;
   }
 
-  .project-container .project-box:first-child {
+  /* FIX: Explicitly force Video (last-child) to top and Text (first-child) to bottom */
+  .project-container .project-box:last-child {
     order: 1;
   }
 
-  .contact-box .field-box {
-    grid-template-columns: repeat(2, 1fr);
+  .project-container .project-box:first-child {
+    order: 2;
+  }
+
+  /* FIX: Scale-down the Live/GitHub buttons on mobile */
+  .project-box .live-github a {
+    padding: 1rem;
+    font-size: 2.2rem;
+  }
+
+  /* FIX: Shrink text area so the Send button is visible */
+  .contact-box .field-box textarea {
+    height: 15rem;
   }
 }
 
@@ -1036,19 +1048,34 @@ section.services {
     font-size: 50%;
   }
 
-  /* Fix for Project Carousel on Mobile */
   .project-carousel {
-    aspect-ratio: 16/9; /* Make it more square on mobile so images are visible */
+    aspect-ratio: 16/9;
     border: 1px solid var(--main-color);
   }
 
-  .project-carousel .img-item img {
-    object-fit: contain;
-    background: #000;
+  /* FIX: Ensure mobile videos keep their cover fit without weird background gaps */
+  .project-carousel .img-item img,
+  .project-carousel .img-item video {
+    object-fit: cover;
+    background: transparent;
+  }
+
+  /* FIX: Perfectly align the skills Grid on small phones */
+  .resume-detail.skills .resume-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .resume-detail.skills .resume-item {
+    padding: 2rem 1rem;
+  }
+
+  .resume-detail.skills .resume-item i {
+    font-size: 5rem;
   }
 
   .home-img .img-box {
-    width: 25rem; /* Smaller to prevent horizontal scrolling */
+    width: 25rem;
     height: 25rem;
   }
 
@@ -1116,8 +1143,9 @@ section.services {
     margin-bottom: 2rem;
   }
 
+  /* FIX: Reduced massive padding on form so it fits nicely */
   .contact-box form {
-    padding: 2.5rem 3rem 3.5rem;
+    padding: 1.5rem 1rem 2rem;
   }
 
   .contact-box h2 {
